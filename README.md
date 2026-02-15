@@ -1,69 +1,79 @@
-# Exchange UI
+# 🚀 Decentralize-Exchange  
+### A Full-Stack Automated Market Maker (AMM) Based Decentralized Exchange
 
-![Next.js](https://img.shields.io/badge/Next.js-16.1.6-000000?logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-Auth%20%26%20Firestore-ffca28?logo=firebase&logoColor=black)
+![Solidity](https://img.shields.io/badge/Solidity-0.8.x-blue)
+![Hardhat](https://img.shields.io/badge/Hardhat-Development-yellow)
+![Next.js](https://img.shields.io/badge/Next.js-Frontend-black)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-Crypto UI featuring a market dashboard, advanced trading interface, and wallet system.
+---
 
-## Features
+## 🌍 Overview
 
-- Market dashboard with CoinGecko data, search, filters, and watchlist
-- Trading screen with TradingView chart, timeframe switch, indicator picker, order book, and buy/sell panel
-- AI trade bot panel (signal + explanation) with auto-trade toggle and API stub
-- Running trades with PnL, partial close buttons (25/50/75/100%)
-- Wallet view with balances, token list, profit booking, and recent orders
-- Positions page with PnL, cost basis, and CSV export
-- Deposit flow UI (INR/USDT + UPI/Bank/Card/PayPal)
-- Auth/profile settings (Firebase email/password)
+**Decentralize-Exchange** is a full-stack decentralized exchange (DEX) built from scratch using Solidity smart contracts and a Next.js frontend.
 
-## Routes
+The project replicates the core mechanics of AMM-based protocols like Uniswap, implementing:
 
-- `/` Market dashboard
-- `/trade` Trading interface
-- `/wallet` Wallet system
-- `/positions` Positions and PnL
-- `/deposit` Deposit funds
-- `/profile` Profile settings
-- `/auth/login` Login
-- `/auth/signup` Sign up
+- Liquidity pool creation  
+- Token swaps using constant product formula  
+- LP token minting  
+- Modular smart contract architecture  
+- Full-stack Web3 integration  
 
-## Development
+This project is developed as a collaborative blockchain engineering project.
 
-```bash
-npm install
-npm run dev
-```
+---
 
-See `requirements.txt` for setup notes.
+## 🧠 AMM Logic (How Pricing Works)
 
-## Build
-
-```bash
-npm run build
-```
-
-## Environment variables
-
-Copy `.env.example` to `.env.local` and fill in your Firebase credentials:
+This DEX uses the **Constant Product Formula**:
 
 ```
-NEXT_PUBLIC_FIREBASE_API_KEY=...
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=...
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=...
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=...
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=...
-NEXT_PUBLIC_FIREBASE_APP_ID=...
+x * y = k
 ```
 
-## Data Sources
+Where:
 
-- CoinGecko public market data
-- TradingView widget (client-side)
-- Binance public API (order book, trades, and ticker)
+- `x` = Reserve of Token A  
+- `y` = Reserve of Token B  
+- `k` = Constant value  
 
-## Notes
+When a user swaps tokens:
+- The product remains constant  
+- Price adjusts automatically  
+- No order book is required  
 
-- Order execution is simulated (client-side).
-- AI bot API is a stub at `/api/ai/bot` and ready for your custom model.
+This makes trading decentralized, permissionless, and algorithm-driven.
+
+---
+
+## 🏗️ System Architecture
+
+```
+User Wallet
+     ↓
+Frontend (Next.js + Ethers.js)
+     ↓
+DexRouter Contract
+     ↓
+DexPair Contract
+     ↓
+Liquidity Pool
+```
+
+---
+
+## 📦 Smart Contracts
+
+| Contract | Purpose |
+|-----------|----------|
+| DexFactory.sol | Creates trading pairs |
+| DexPair.sol | Manages reserves & liquidity |
+| DexRouter.sol | Handles swaps & liquidity operations |
+| LPToken.sol | Represents liquidity ownership |
+| MockERC20.sol | Testing tokens |
+
+---
+
+## ⚙️ Tech S
+
